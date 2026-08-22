@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="العناني للتسويق العقاري — نجد لك البيت الذي تحلم به بأفضل الأسعار وأعلى المعايير" />
+  <title>العناني للتسويق العقاري</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="30,4 56,52 4,52" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+          <text x="30" y="40" text-anchor="middle" fill="#C9A84C" font-size="16" font-family="Cairo" font-weight="900">ع</text>
+        </svg>
+      </div>
+      <span class="nav-logo-text">العناني</span>
+    </a>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link">الرئيسية</a>
+      <a href="#properties" class="nav-link">العقارات</a>
+      <a href="#about" class="nav-link">من نحن</a>
+      <a href="#contact" class="nav-link">تواصل معنا</a>
+    </div>
+    <a href="/login" class="nav-cta" id="navCta" style="display: none;">لوحة التحكم</a>
+    <button class="nav-hamburger" id="navHamburger">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a href="#hero">الرئيسية</a>
+    <a href="#properties">العقارات</a>
+    <a href="#about">من نحن</a>
+    <a href="#contact">تواصل معنا</a>
+    <a href="/login" id="mobileNavCta" style="display: none;">لوحة التحكم</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🏆 الرائدون في التسويق العقاري</div>
+    <h1 class="hero-title" id="heroTitle">العناني للتسويق العقاري</h1>
+    <p class="hero-subtitle" id="heroSubtitle">نجد لك البيت الذي تحلم به بأفضل الأسعار وأعلى المعايير</p>
+    <div class="hero-actions">
+      <a href="#properties" class="btn-primary" id="heroCta">اكتشف العقارات</a>
+      <a href="#contact" class="btn-secondary">تواصل معنا</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-indicator"></div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-num" id="statsProjects">500+</span>
+        <span class="stat-lbl">مشروع ناجح</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" id="statsClients">1200+</span>
+        <span class="stat-lbl">عميل راضٍ</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" id="statsYears">15+</span>
+        <span class="stat-lbl">سنة خبرة</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROPERTIES ===== -->
+<section class="properties-section" id="properties">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">عقاراتنا</span>
+      <h2 class="section-title">أفضل العقارات المتاحة</h2>
+      <p class="section-desc">اختر من بين مجموعة متنوعة من العقارات الفاخرة بأفضل الأسعار</p>
+    </div>
+    <div class="props-filter">
+      <button class="prop-filter-btn active" data-filter="all">الكل</button>
+      <button class="prop-filter-btn" data-filter="available">متاح</button>
+      <button class="prop-filter-btn" data-filter="reserved">محجوز</button>
+    </div>
+    <div class="props-grid" id="propsGrid">
+      <div class="loading-spinner">جارٍ التحميل...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="about-logo-big">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="60,8 112,100 8,100" fill="none" stroke="#C9A84C" stroke-width="3" opacity="0.5"/>
+            <polygon points="60,22 96,88 24,88" fill="rgba(201,168,76,0.08)"/>
+            <text x="60" y="80" text-anchor="middle" fill="#C9A84C" font-size="36" font-family="Cairo" font-weight="900">ع</text>
+          </svg>
+        </div>
+        <div class="about-glow"></div>
+      </div>
+      <div class="about-text-side">
+        <span class="section-tag">من نحن</span>
+        <h2 class="section-title" id="aboutTitle">من نحن</h2>
+        <p class="about-text" id="aboutText">شركة العناني للتسويق العقاري هي شركة رائدة في مجال العقارات.</p>
+        <div class="about-features">
+          <div class="feature-item"><span class="feature-icon">✅</span><span>خبرة واسعة في السوق العقاري</span></div>
+          <div class="feature-item"><span class="feature-icon">✅</span><span>فريق متخصص ومحترف</span></div>
+          <div class="feature-item"><span class="feature-icon">✅</span><span>أفضل الأسعار مضمونة</span></div>
+          <div class="feature-item"><span class="feature-icon">✅</span><span>خدمة عملاء على مدار الساعة</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">تواصل معنا</span>
+      <h2 class="section-title">نحن هنا لمساعدتك</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>اتصل بنا</h3>
+        <a href="#" class="contact-value" id="contactPhone">01000000000</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h3>البريد الإلكتروني</h3>
+        <a href="#" class="contact-value" id="contactEmail">info@alanani.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>العنوان</h3>
+        <p class="contact-value" id="contactAddress">القاهرة، مصر</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="40">
+        <polygon points="30,4 56,52 4,52" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+        <text x="30" y="40" text-anchor="middle" fill="#C9A84C" font-size="16" font-family="Cairo" font-weight="900">ع</text>
+      </svg>
+      <span>العناني للتسويق العقاري</span>
+    </div>
+    <p class="footer-text" id="footerText">جميع الحقوق محفوظة © 2024 العناني للتسويق العقاري</p>
+  </div>
+</footer>
+
+<!-- Property Modal -->
+<div class="prop-modal-overlay" id="propModalOverlay">
+  <div class="prop-modal">
+    <button class="prop-modal-close" id="propModalClose">✕</button>
+    <div class="prop-modal-content" id="propModalContent"></div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

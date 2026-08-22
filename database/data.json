@@ -1,0 +1,73 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "created_at": "2026-08-20T17:05:46.350Z",
+      "username": "admin",
+      "password_hash": "$2a$10$ry6pEZqEA01HQapFP1eodugoj8O/uHUyLnOOVb78tCQ9uYBujFlhi",
+      "role": "admin"
+    }
+  ],
+  "properties": [
+    {
+      "id": 1,
+      "created_at": "2026-08-20T17:05:46.358Z",
+      "title": "شقة فاخرة بالتجمع الخامس",
+      "description": "شقة راقية بتشطيبات سوبر لوكس، 3 غرف نوم، صالة واسعة",
+      "price": "3,500,000",
+      "location": "التجمع الخامس، القاهرة",
+      "area": "180 م²",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "created_at": "2026-08-20T17:05:46.359Z",
+      "title": "فيلا مودرن بالشيخ زايد",
+      "description": "فيلا مستقلة بحديقة خاصة وحمام سباحة، تشطيبات فاخرة",
+      "price": "12,000,000",
+      "location": "الشيخ زايد، الجيزة",
+      "area": "450 م²",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "created_at": "2026-08-20T17:05:46.361Z",
+      "title": "محل تجاري بالمعادي",
+      "description": "محل تجاري في موقع استراتيجي بالمعادي القاهرة",
+      "price": "2,200,000",
+      "location": "المعادي، القاهرة",
+      "area": "85 م²",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "status": "available",
+      "featured": true,
+      "updated_at": "2026-08-20T17:59:29.527Z"
+    }
+  ],
+  "media": [],
+  "site_content": {
+    "hero_title": "العناني للتسويق العقاري",
+    "hero_subtitle": "نجد لك البيت الذي تحلم به بأفضل الأسعار وأعلى المعايير",
+    "hero_cta": "اكتشف العقارات",
+    "about_title": "من نحن",
+    "about_text": "شركة العناني للتسويق العقاري هي شركة رائدة في مجال العقارات، نقدم أفضل الفرص الاستثمارية والسكنية بخبرة تمتد لسنوات طويلة في السوق العقاري.",
+    "contact_phone": "01000000000",
+    "contact_email": "info@alanani.com",
+    "contact_address": "القاهرة، مصر",
+    "footer_text": "جميع الحقوق محفوظة © 2024 العناني للتسويق العقاري",
+    "stats_projects": "500+",
+    "stats_clients": "1200+",
+    "stats_years": "15+"
+  },
+  "_counters": {
+    "users": 1,
+    "properties": 3,
+    "media": 2
+  }
+}

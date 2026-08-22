@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم — العناني للتسويق العقاري</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-icon">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,4 56,52 4,52" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+        <text x="30" y="40" text-anchor="middle" fill="#C9A84C" font-size="16" font-family="Cairo" font-weight="900">ع</text>
+      </svg>
+    </div>
+    <div class="sidebar-logo-text">
+      <span class="sidebar-logo-name">العناني</span>
+      <span class="sidebar-logo-sub">لوحة التحكم</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-page="overview">
+      <span class="nav-icon">📊</span><span class="nav-label">الرئيسية</span>
+    </a>
+    <a href="#" class="nav-item" data-page="properties">
+      <span class="nav-icon">🏠</span><span class="nav-label">العقارات</span>
+    </a>
+    <a href="#" class="nav-item" data-page="media">
+      <span class="nav-icon">🖼️</span><span class="nav-label">الصور والفيديوهات</span>
+    </a>
+    <a href="#" class="nav-item" data-page="content">
+      <span class="nav-icon">✏️</span><span class="nav-label">محتوى الموقع</span>
+    </a>
+    <a href="#" class="nav-item" data-page="settings">
+      <span class="nav-icon">⚙️</span><span class="nav-label">الإعدادات</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="/" target="_blank" class="view-site-btn">🌐 عرض الموقع</a>
+    <button class="logout-btn" id="logoutBtn">🚪 تسجيل الخروج</button>
+  </div>
+</aside>
+
+<!-- Top Bar -->
+<header class="topbar">
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <div class="topbar-title" id="pageTitle">الرئيسية</div>
+  <div class="topbar-user">
+    <div class="user-avatar" id="userAvatar">A</div>
+    <span class="user-name" id="userName">Admin</span>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="main-content">
+
+  <!-- ===== OVERVIEW PAGE ===== -->
+  <section class="page active" id="page-overview">
+    <div class="page-header">
+      <h2>مرحباً بك 👋</h2>
+      <p>إليك ملخص نشاط الموقع</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🏠</div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-total">—</span>
+          <span class="stat-label">إجمالي العقارات</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-available">—</span>
+          <span class="stat-label">عقارات متاحة</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🖼️</div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-images">—</span>
+          <span class="stat-label">إجمالي الصور</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎬</div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-videos">—</span>
+          <span class="stat-label">إجمالي الفيديوهات</span>
+        </div>
+      </div>
+    </div>
+    <div class="recent-section">
+      <h3 class="section-title">أحدث العقارات</h3>
+      <div class="properties-grid" id="recentProperties"></div>
+    </div>
+  </section>
+
+  <!-- ===== PROPERTIES PAGE ===== -->
+  <section class="page" id="page-properties">
+    <div class="page-header">
+      <h2>إدارة العقارات</h2>
+      <button class="btn-gold" id="addPropertyBtn">+ إضافة عقار جديد</button>
+    </div>
+    <div class="properties-table-wrapper">
+      <table class="data-table" id="propertiesTable">
+        <thead>
+          <tr>
+            <th>#</th><th>العنوان</th><th>الموقع</th><th>السعر</th><th>الحالة</th><th>مميز</th><th>الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody id="propertiesTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== MEDIA PAGE ===== -->
+  <section class="page" id="page-media">
+    <div class="page-header">
+      <h2>إدارة الصور والفيديوهات</h2>
+      <button class="btn-gold" id="uploadMediaBtn">⬆ رفع ملفات</button>
+    </div>
+    <div class="media-filters">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="image">صور فقط</button>
+      <button class="filter-btn" data-filter="video">فيديوهات فقط</button>
+    </div>
+    <div class="media-grid" id="mediaGrid"></div>
+  </section>
+
+  <!-- ===== CONTENT PAGE ===== -->
+  <section class="page" id="page-content">
+    <div class="page-header">
+      <h2>تعديل محتوى الموقع</h2>
+      <button class="btn-gold" id="saveContentBtn">💾 حفظ التغييرات</button>
+    </div>
+    <div class="content-sections">
+      <div class="content-card">
+        <h3 class="content-card-title">🎯 قسم Hero الرئيسي</h3>
+        <div class="field-group">
+          <label>العنوان الرئيسي</label>
+          <input type="text" id="c-hero_title" class="content-input" />
+        </div>
+        <div class="field-group">
+          <label>النص التعريفي</label>
+          <textarea id="c-hero_subtitle" class="content-input" rows="2"></textarea>
+        </div>
+        <div class="field-group">
+          <label>نص زر الدعوة للتصرف</label>
+          <input type="text" id="c-hero_cta" class="content-input" />
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3 class="content-card-title">🏢 من نحن</h3>
+        <div class="field-group">
+          <label>عنوان القسم</label>
+          <input type="text" id="c-about_title" class="content-input" />
+        </div>
+        <div class="field-group">
+          <label>النص</label>
+          <textarea id="c-about_text" class="content-input" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3 class="content-card-title">📞 التواصل</h3>
+        <div class="field-group">
+          <label>رقم الهاتف</label>
+          <input type="text" id="c-contact_phone" class="content-input" />
+        </div>
+        <div class="field-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" id="c-contact_email" class="content-input" />
+        </div>
+        <div class="field-group">
+          <label>العنوان</label>
+          <input type="text" id="c-contact_address" class="content-input" />
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3 class="content-card-title">📈 الإحصائيات</h3>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>عدد المشاريع</label>
+            <input type="text" id="c-stats_projects" class="content-input" />
+          </div>
+          <div class="field-group">
+            <label>عدد العملاء</label>
+            <input type="text" id="c-stats_clients" class="content-input" />
+          </div>
+          <div class="field-group">
+            <label>سنوات الخبرة</label>
+            <input type="text" id="c-stats_years" class="content-input" />
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3 class="content-card-title">🔻 Footer</h3>
+        <div class="field-group">
+          <label>نص Footer</label>
+          <input type="text" id="c-footer_text" class="content-input" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SETTINGS PAGE ===== -->
+  <section class="page" id="page-settings">
+    <div class="page-header">
+      <h2>الإعدادات</h2>
+    </div>
+    <div class="settings-card">
+      <h3 class="content-card-title">🔑 تغيير كلمة المرور</h3>
+      <form id="changePassForm">
+        <div class="field-group">
+          <label>كلمة المرور الحالية</label>
+          <input type="password" id="currentPass" class="content-input" required />
+        </div>
+        <div class="field-group">
+          <label>كلمة المرور الجديدة</label>
+          <input type="password" id="newPass" class="content-input" required minlength="6" />
+        </div>
+        <div class="field-group">
+          <label>تأكيد كلمة المرور الجديدة</label>
+          <input type="password" id="confirmPass" class="content-input" required />
+        </div>
+        <div id="passMsg" class="pass-msg" style="display:none;"></div>
+        <button type="submit" class="btn-gold">تغيير كلمة المرور</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== MODALS ===== -->
+
+<!-- Property Modal -->
+<div class="modal-overlay" id="propertyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="propertyModalTitle">إضافة عقار جديد</h3>
+      <button class="modal-close" data-modal="propertyModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="propertyForm">
+        <input type="hidden" id="propId" />
+        <div class="fields-row">
+          <div class="field-group full">
+            <label>عنوان العقار *</label>
+            <input type="text" id="propTitle" class="content-input" required />
+          </div>
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>الموقع</label>
+            <input type="text" id="propLocation" class="content-input" />
+          </div>
+          <div class="field-group">
+            <label>السعر</label>
+            <input type="text" id="propPrice" class="content-input" placeholder="مثال: 2,500,000" />
+          </div>
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>المساحة</label>
+            <input type="text" id="propArea" class="content-input" placeholder="مثال: 180 م²" />
+          </div>
+          <div class="field-group">
+            <label>غرف النوم</label>
+            <input type="number" id="propBedrooms" class="content-input" min="0" value="0" />
+          </div>
+          <div class="field-group">
+            <label>الحمامات</label>
+            <input type="number" id="propBathrooms" class="content-input" min="0" value="0" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label>الوصف</label>
+          <textarea id="propDesc" class="content-input" rows="3"></textarea>
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>الحالة</label>
+            <select id="propStatus" class="content-input">
+              <option value="available">متاح</option>
+              <option value="sold">مباع</option>
+              <option value="reserved">محجوز</option>
+            </select>
+          </div>
+          <div class="field-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="propFeatured" />
+              <span class="checkbox-custom"></span>
+              عقار مميز (يظهر في الرئيسية)
+            </label>
+          </div>
+        </div>
+
+        <!-- Media Upload in Property Modal -->
+        <div class="field-group" id="propMediaGroup" style="display:none;">
+          <label>صور وفيديوهات العقار</label>
+          <div class="upload-zone" id="propUploadZone">
+            <span class="upload-icon">📎</span>
+            <p>اسحب الملفات هنا أو <span class="upload-link">اختر من جهازك</span></p>
+            <p class="upload-hint">يدعم: JPG, PNG, WebP, MP4, MOV (حتى 100MB)</p>
+            <input type="file" id="propMediaFiles" multiple accept="image/*,video/*" style="display:none;" />
+          </div>
+          <div class="upload-preview" id="propMediaPreview"></div>
+          <div class="existing-media" id="existingMediaList"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-gold" id="savePropBtn">حفظ العقار</button>
+          <button type="button" class="btn-outline" data-modal="propertyModal">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Upload Media Modal -->
+<div class="modal-overlay" id="uploadModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>رفع صور وفيديوهات</h3>
+      <button class="modal-close" data-modal="uploadModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label>ربط بعقار (اختياري)</label>
+        <select id="uploadPropertySelect" class="content-input">
+          <option value="">— بدون ربط بعقار —</option>
+        </select>
+      </div>
+      <div class="upload-zone" id="mainUploadZone">
+        <span class="upload-icon">☁️</span>
+        <p>اسحب الملفات هنا أو <span class="upload-link">اختر من جهازك</span></p>
+        <p class="upload-hint">يدعم: JPG, PNG, WebP, MP4, MOV (حتى 100MB لكل ملف)</p>
+        <input type="file" id="mainMediaFiles" multiple accept="image/*,video/*" style="display:none;" />
+      </div>
+      <div class="upload-preview" id="mainMediaPreview"></div>
+      <div class="upload-progress" id="uploadProgress" style="display:none;">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <p id="progressText">جارٍ الرفع...</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-gold" id="doUploadBtn" disabled>⬆ رفع الملفات</button>
+        <button class="btn-outline" data-modal="uploadModal">إلغاء</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Replace Media Modal -->
+<div class="modal-overlay" id="replaceModal">
+  <div class="modal modal-sm">
+    <div class="modal-header">
+      <h3>استبدال الملف</h3>
+      <button class="modal-close" data-modal="replaceModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:rgba(255,255,255,0.6);margin-bottom:16px;">اختر ملفاً جديداً ليحل محل الملف الحالي</p>
+      <div class="upload-zone" id="replaceUploadZone">
+        <span class="upload-icon">🔄</span>
+        <p>اختر الملف الجديد</p>
+        <input type="file" id="replaceFile" accept="image/*,video/*" style="display:none;" />
+      </div>
+      <div class="upload-preview" id="replacePreview"></div>
+      <input type="hidden" id="replaceMediaId" />
+      <div class="modal-actions">
+        <button class="btn-gold" id="doReplaceBtn" disabled>استبدال</button>
+        <button class="btn-outline" data-modal="replaceModal">إلغاء</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
